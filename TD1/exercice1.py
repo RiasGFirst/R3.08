@@ -1,5 +1,5 @@
 
-def plusGrand(a : int, b : int) -> int:
+def plusGrand(a : int, b : int, *args) -> int:
     """
     Retourne le nombre le plus grand des 2.
     :param a:

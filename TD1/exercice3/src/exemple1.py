@@ -1,10 +1,17 @@
 
 def affiche(text: str) -> None:
+    """
+    Fonction pour afficher un texte
+    :param text:
+    :return:
+    """
     print(f"texte à afficher: {text}")
 
 
 class Velo:
-
+    """
+    Classe Velo
+    """
     def __init__(self, marque: str, taille_pneu: int, couleur: str, nb_vitesse: int) -> None:
         self.marque = marque
         self.taille_pneu = taille_pneu
@@ -32,8 +39,13 @@ Vitesse courante: {self.vitesse_courante}
         """
 
 
-def principal() -> None:
-    affiche("Bonjour tout le monde")
+def principal(str1: str) -> None:
+    """
+    Fonction principale
+    :param str1:
+    :return:
+    """
+    affiche(str1)
     v1 = Velo("Ricoh", 28, "rouge", 7)
     print(v1)
     v1.gear_up()
@@ -45,4 +57,4 @@ def principal() -> None:
 
 
 if __name__ == "__main__":
-    principal()
+    principal("Bonjour")
