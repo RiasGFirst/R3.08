@@ -20,6 +20,10 @@ class Velo:
         self.vitesse_courante = 1
 
     def gear_up(self) -> int:
+        """
+        :return:
+        :rtype: int
+        """
         if self.vitesse_courante < self.nb_vitesse:
             self.vitesse_courante += 1
         return self.vitesse_courante
