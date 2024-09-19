@@ -8,4 +8,3 @@ src
    Point
    Rectangle
    Triangle
-   main
