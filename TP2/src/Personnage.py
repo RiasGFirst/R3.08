@@ -100,7 +100,7 @@ class Personnage:
         """
         print(f"{self.get_pseudo()} ({self.get_pv()}) vs {p.get_pseudo()} ({p.get_pv()})")
         while self.__pv > 0 and p.get_pv() > 0:
-            self.attaque(p)
+            self.__attaque(p)
             print(f"{self.get_pseudo()} ({self.get_pv()})")
             print(f"{p.get_pseudo()} ({p.get_pv()})")
 
