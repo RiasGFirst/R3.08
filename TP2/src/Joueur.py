@@ -80,3 +80,22 @@ class Joueur:
                 if p == personnage:
                     self.__personnages.remove(p)
                     return f"Personnage {personnage.get_pseudo()} supprimé"
+
+
+    def __str__(self):
+        """
+        Surcharge de l'opérateur str
+        :return:
+        :rtype: str
+        """
+        personnage = ""
+
+        for p in self.__personnages:
+            personnage += f"    - {p.afficher()}\n"
+
+        return f"""
+Joueur {self.__nom} possède {len(self.__personnages)} personnage(s)
+ 
+Liste des personnages:
+{personnage}
+"""

@@ -9,6 +9,12 @@ class Cercle:
         """
         Constructeur
         """
+        if rayon < 0:
+            raise ValueError("Le rayon doit être positif")
+        if not isinstance(centre, Point):
+            raise TypeError("Le centre doit être un objet de la classe Point")
+        if centre.getX() < 0 or centre.getY() < 0:
+            raise ValueError("Les coordonnées du centre doivent être positives")
         self._centre = centre
         self._rayon = rayon
 
@@ -46,6 +52,8 @@ class Cercle:
         """
         Retourne True si les deux cercles se coupent, False sinon
         """
+        if not isinstance(cercle, Cercle):
+            raise TypeError("L'objet doit être un cercle")
         return self._centre.distancePoint(cercle.getCentre()) <= self.diametre()
 
     def dansCercle(self, point: Point)->bool:

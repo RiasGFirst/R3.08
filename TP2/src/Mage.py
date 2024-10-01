@@ -14,6 +14,8 @@ class Mage(Personnage):
         :param mana:
         :return:
         """
+        if not isinstance(mana, (int, float)):
+            raise TypeError("Mana must be a number")
         self.__mana = mana
 
     def get_mana(self)->float:

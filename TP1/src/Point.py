@@ -34,6 +34,9 @@ class Point:
         :param y: float
         :return: float
         """
+        if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
+            raise TypeError("Les coordonnées doivent être des nombres")
+        
         distance = ((self._x-x)**2 + (self._y-y)**2)**0.5
         return distance
 
@@ -43,6 +46,9 @@ class Point:
         :param point: Point
         :return: float
         """
+        if not isinstance(point, Point):
+            raise TypeError("Le point doit être une instance de la classe Point")
+
         return self.distanceCoordonnees(point.getX(), point.getY())
 
     def __str__(self) -> str:

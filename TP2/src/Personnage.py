@@ -13,6 +13,7 @@ class Personnage:
         self.__pseudo = pseudo
         self.__niveau = niveau
         self.__pv = niveau
+        self.__max_pv = self.__pv
         self.__initiative = niveau
 
     def get_pseudo(self)->str:
@@ -63,14 +64,19 @@ class Personnage:
         """
         self.__initiative = initiative
 
-    def set_pv(self, pv: float):
+    def set_pv(self, pv: float, is_heal: bool = False):
         """
         Modifie les points de vie du personnage
         :param pv:
+        :param is_heal:
         :return:
         """
-        if pv < 0:
-            pv = 0
+        if is_heal:
+            if pv > self.__max_pv:
+                pv = self.__max_pv
+        else:
+            if pv < 0:
+                pv = 0
         self.__pv = pv
 
     def __attaque(self, p: "Personnage"):
@@ -109,16 +115,6 @@ class Personnage:
         else:
             return p.get_pseudo()
 
-    def soigner(self, p: "Personnage" = None):
-        """
-        Soigne un personnage
-        :param p:
-        :return:
-        """
-        if p is None:
-            self.set_pv(self.get_niveau())
-        else:
-            p.set_pv(p.get_niveau())
 
     def degats(self)->float:
         """
@@ -127,6 +123,12 @@ class Personnage:
         :rtype: float
         """
         return self.__niveau
+
+    def afficher(self)->str:
+        """
+        Affiche les informations du personnage
+        """
+        return f"{self.get_pseudo()} (niv: {self.get_niveau()})"
 
     def __eq__(self, other):
         """
